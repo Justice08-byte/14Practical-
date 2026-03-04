@@ -36,4 +36,20 @@ public class openHash {
 
         return null;
     }
+    public String remove(String key) {
+        int i = hash(key);
+
+        while (table[i] != null) {
+            if (table[i].key.equals(key)) {
+                String val = table[i].value;
+                table[i] = null;
+                size--;
+                return val;
+            }
+            i = (i % m) + 1;
+        }
+
+        return null;
+    }
+}
 
